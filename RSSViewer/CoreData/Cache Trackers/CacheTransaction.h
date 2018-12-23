@@ -39,7 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (assign, nonatomic, readonly) NSFetchedResultsChangeType changeType;
 
 + (instancetype)transactionWithObject:(id)object
-                         oldIndexPath:(NSIndexPath *)oldIndexPath
+                         oldIndexPath:(nullable NSIndexPath *)oldIndexPath
                      updatedIndexPath:(NSIndexPath *)updatedIndexPath
                            objectType:(NSString *)objectType
                            changeType:(NSUInteger)changeType;

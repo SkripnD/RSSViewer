@@ -7,6 +7,7 @@
 //
 
 #import "FeedListTableViewCell.h"
+#import "RssSourceModel.h"
 
 @interface FeedListTableViewCell()
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -16,7 +17,7 @@
 
 @implementation FeedListTableViewCell
 
-- (void) updateWith:(RssSource *)rssSource {
+- (void) updateWith:(RssSourceModel *)rssSource {
     self.nameLabel.text = rssSource.name;
     self.urlLabel.text  = rssSource.url;
 }

@@ -7,6 +7,7 @@
 //
  
 #import "FeedsListPresenter.h"
+#import "CacheTransactionBatch.h"
 
 @implementation FeedsListPresenter
 
@@ -32,8 +33,19 @@
 
 #pragma mark - FeedsListInteractorOutputProtocol
 
-- (void) feedSourcesFetched:(NSArray *)feedSources {
-    [self.view showFeedSources:feedSources];
+- (void) didProcessCacheTransaction:(CacheTransactionBatch *)transactionBatch {
+    if ([transactionBatch.insertTransactions count] > 0 && self.view) {
+        [self.view didProcessInsertTransactions:transactionBatch.insertTransactions];
+    }
+    if ([transactionBatch.updateTransactions count] > 0 && self.view) {
+        [self.view didProcessUpdateTransactions:transactionBatch.updateTransactions];
+    }
+    if ([transactionBatch.deleteTransactions count] > 0 && self.view) {
+        [self.view didProcessDeleteTransactions:transactionBatch.deleteTransactions];
+    }
+    if ([transactionBatch.moveTransactions count] > 0 && self.view) {
+        [self.view didProcessMoveTransactions:transactionBatch.moveTransactions];
+    }
 }
 
 

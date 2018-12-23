@@ -11,9 +11,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class RssSourceModel;
 @interface FeedListTableViewCell : UITableViewCell
 
-- (void) updateWith:(RssSource*)rssSource;
+- (void) updateWith:(RssSourceModel*)rssSource;
 
 @end
 

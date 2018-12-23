@@ -11,10 +11,10 @@
 
 @interface CacheTransactionBatch()
 
-@property (strong, nonatomic) NSMutableOrderedSet *insertTransactionsPrivate;
-@property (strong, nonatomic) NSMutableOrderedSet *updateTransactionsPrivate;
-@property (strong, nonatomic) NSMutableOrderedSet *deleteTransactionsPrivate;
-@property (strong, nonatomic) NSMutableOrderedSet *moveTransactionsPrivate;
+@property (strong, nonatomic) NSMutableOrderedSet<CacheTransaction*> *insertTransactionsPrivate;
+@property (strong, nonatomic) NSMutableOrderedSet<CacheTransaction*> *updateTransactionsPrivate;
+@property (strong, nonatomic) NSMutableOrderedSet<CacheTransaction*> *deleteTransactionsPrivate;
+@property (strong, nonatomic) NSMutableOrderedSet<CacheTransaction*> *moveTransactionsPrivate;
 
 @end
 

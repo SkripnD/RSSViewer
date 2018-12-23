@@ -8,13 +8,14 @@
 
 #import "FeedsListViewController.h"
 #import "FeedListTableViewCell.h"
-#import "RssSource+CoreDataProperties.h"
+#import "CacheTransaction.h"
+#import "RssSourceModel.h"
 
 static NSString * kCellFeedSourceIdentifier = @"FeedListTableViewCell";
 
 @interface FeedsListViewController()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) IBOutlet UITableView * tableView;
-@property (nonatomic, strong) NSArray * feedSources;
+@property (nonatomic, strong) NSMutableArray * feedSources;
 
 @end
 
@@ -24,6 +25,7 @@ static NSString * kCellFeedSourceIdentifier = @"FeedListTableViewCell";
 {
     [super viewDidLoad];
 
+    self.feedSources = [NSMutableArray new];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
 
@@ -33,9 +35,28 @@ static NSString * kCellFeedSourceIdentifier = @"FeedListTableViewCell";
 
 #pragma mark - FeedsListViewProtocol
 
-- (void) showFeedSources:(NSArray *)feedSources {
-    self.feedSources = feedSources;
-    [self.tableView reloadData];
+- (void) didProcessInsertTransactions:(NSOrderedSet<CacheTransaction *> *)transactions {
+    NSMutableArray * indexPaths = [NSMutableArray new];
+    for (CacheTransaction *transaction in transactions) {
+        [indexPaths addObject:transaction.updatedIndexPath];
+        [self.feedSources insertObject:transaction.object atIndex:transaction.updatedIndexPath.row];
+    }
+
+    [self.tableView beginUpdates];
+    [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationNone];
+    [self.tableView endUpdates];
+}
+
+- (void) didProcessUpdateTransactions:(NSOrderedSet<CacheTransaction *> *)transactions {
+
+}
+
+- (void) didProcessDeleteTransactions:(NSOrderedSet<CacheTransaction *> *)transactions {
+
+}
+
+- (void) didProcessMoveTransactions:(NSOrderedSet<CacheTransaction *> *)transactions {
+
 }
 
 

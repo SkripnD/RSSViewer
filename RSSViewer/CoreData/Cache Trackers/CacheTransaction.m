@@ -19,7 +19,7 @@
 
 @implementation CacheTransaction
 
-+ (instancetype) transactionWithObject:(id)object oldIndexPath:(NSIndexPath *)oldIndexPath updatedIndexPath:(NSIndexPath *)updatedIndexPath objectType:(NSString *)objectType changeType:(NSUInteger)changeType {
++ (instancetype) transactionWithObject:(id)object oldIndexPath:(nullable NSIndexPath *)oldIndexPath updatedIndexPath:(NSIndexPath *)updatedIndexPath objectType:(NSString *)objectType changeType:(NSUInteger)changeType {
     CacheTransaction * transaction = [CacheTransaction new];
     transaction.objectPrivate = object;
     transaction.oldIndexPathPrivate = oldIndexPath;

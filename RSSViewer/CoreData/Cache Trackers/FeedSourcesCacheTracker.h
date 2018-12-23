@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "CacheTrackerProtocol.h"
+#import "CacheTrackingProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface FeedSourcesCacheTracker : NSObject<CacheTrackerProtocol>
+@property (nonatomic, weak) id<CacheTrackingProtocol>delegate;
 
 @end
 

@@ -12,7 +12,9 @@
 #import "FeedSourcesCacheTracker.h"
 #import "RssSource+CoreDataProperties.h"
 
-@interface FeedsListInteractor()<NSFetchedResultsControllerDelegate, CacheTrackerProtocol>
+#import "CacheTrackingProtocol.h"
+
+@interface FeedsListInteractor()<NSFetchedResultsControllerDelegate, CacheTrackingProtocol>
 @property (nonatomic, strong) CoreDataManager * coreDataManager;
 @property (nonatomic, strong) FeedSourcesCacheTracker * cacheTracker;
 
@@ -37,22 +39,31 @@
 
     self.cacheTracker = [FeedSourcesCacheTracker new];
 
-
+    NSLog(@"%@", self.coreDataManager.readContext);
     RssSource * item = [[RssSource alloc] initWithContext:self.coreDataManager.readContext];
     item.name = @"test";
     item.url = @"test2";
     [self.coreDataManager.readContext save:nil] ;
 
-    CacheRequest * request = [CacheRequest requestWithPredicate:nil
+    CacheRequest * cacheRequest = [CacheRequest requestWithPredicate:nil
                                                 sortDescriptors:@[[[NSSortDescriptor alloc] initWithKey:@"dateCreated" ascending:YES]]
-                                                    objectClass:[RssSource class] filterValue:nil];
+                                                    objectClass:[RssSource class] filterValue:@""];
 
-    [self.cacheTracker setupWithCacheRequest:request];
-    CacheTransactionBatch *initialBatch = [self.cacheTracker obtainTransactionBatchFromCurrentCache];
-
-    [self.presenter feedSourcesFetched:self.fetchController.fetchedObjects];
+    [self setupCacheTrackingWithCacheRequest:cacheRequest];
 }
 
+
+#pragma mark - CacheTrackingProtocol
+
+- (void) didProcessTransactionBatch:(CacheTransactionBatch *)transactionBatch {
+    [self.presenter didProcessCacheTransaction:transactionBatch];
+}
+
+- (void) setupCacheTrackingWithCacheRequest:(CacheRequest *)cacheRequest {
+    [self.cacheTracker setupWithCacheRequest:cacheRequest];
+    CacheTransactionBatch *initialBatch = [self.cacheTracker obtainTransactionBatchFromCurrentCache];
+    [self.presenter didProcessCacheTransaction:initialBatch];
+}
 
 
 @end

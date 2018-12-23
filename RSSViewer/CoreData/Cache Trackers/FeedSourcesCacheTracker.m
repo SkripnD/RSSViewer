@@ -12,13 +12,14 @@
 #import "CacheRequest.h"
 #import "CacheTransaction.h"
 #import "CacheTransactionBatch.h"
-#import "RssSource+CoreDataProperties.h"
+#import "PlainModelsFactory.h"
 
 @interface FeedSourcesCacheTracker()<NSFetchedResultsControllerDelegate>
 @property (nonatomic, strong) CoreDataManager * coreDataManager;
 @property (nonatomic, strong) NSFetchedResultsController * fetchController;
 @property (nonatomic, strong) CacheRequest * cacheRequest;
 @property (nonatomic, strong) CacheTransactionBatch * transactionBatch;
+@property (nonatomic, strong) PlainModelsFactory * objectsFactory;
 
 @end
 
@@ -28,6 +29,9 @@
 #pragma mark - CacheTracker
 
 - (void)setupWithCacheRequest:(CacheRequest *)cacheRequest {
+    self.objectsFactory = [PlainModelsFactory new];
+    self.coreDataManager = [CoreDataManager new];
+
     self.cacheRequest = cacheRequest;
 
     NSManagedObjectContext *defaultContext = self.coreDataManager.readContext;
@@ -52,8 +56,7 @@
     for (NSUInteger i = 0; i < self.fetchController.fetchedObjects.count; i++) {
         id object = self.fetchController.fetchedObjects[i];
         NSIndexPath *indexPath = [self.fetchController indexPathForObject:object];
-        //id plainObject = [self.objectsFactory plainNSObjectForObject:object];
-        id plainObject = @"";
+        id plainObject = [self.objectsFactory plainModelFromManagedObject:object];
         CacheTransaction *transaction = [CacheTransaction transactionWithObject:plainObject
                                                                    oldIndexPath:nil
                                                                updatedIndexPath:indexPath
@@ -72,8 +75,7 @@
 }
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(NSManagedObject *)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
-    //id plainObject = [self.objectsFactory plainNSObjectForObject:anObject];
-    id plainObject = @"";
+    id plainObject = [self.objectsFactory plainModelFromManagedObject:anObject];
     CacheTransaction *transaction = [CacheTransaction transactionWithObject:plainObject
                                                                oldIndexPath:indexPath
                                                            updatedIndexPath:newIndexPath
@@ -87,7 +89,7 @@
         return;
     }
 
-    //[self.delegate didProcessTransactionBatch:self.transactionBatch];
+    [self.delegate didProcessTransactionBatch:self.transactionBatch];
 }
 
 
