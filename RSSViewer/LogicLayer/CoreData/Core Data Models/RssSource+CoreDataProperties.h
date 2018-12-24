@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, copy) NSDate *dateSynced;
 @property (nonnull, nonatomic, copy) NSString *name;
 @property (nonnull, nonatomic, copy) NSString *url;
-@property (nonnull, nonatomic, copy) NSString *identifier;
+@property (nonnull, nonatomic, copy) NSString *hashId;
 
 @end
 

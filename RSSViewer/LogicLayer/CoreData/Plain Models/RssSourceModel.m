@@ -25,7 +25,7 @@
     }
 
     RssSource * rssSource = (RssSource *)managedObject;
-    self.identifier = rssSource.identifier;
+    self.hashId = rssSource.hashId;
     self.url = rssSource.url;
     self.name = rssSource.name;
     self.dateSynced = rssSource.dateSynced;

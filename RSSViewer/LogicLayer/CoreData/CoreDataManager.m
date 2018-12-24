@@ -16,6 +16,15 @@
 @implementation CoreDataManager
 @synthesize persistentContainer = _persistentContainer;
 
++ (id)sharedManager {
+    static CoreDataManager *shared = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        shared = [[self alloc] init];
+    });
+    return shared;
+}
+
 - (NSPersistentContainer *)persistentContainer {
     if (!_persistentContainer) {
         _persistentContainer = [[NSPersistentContainer alloc] initWithName:@"RSSViewer"];

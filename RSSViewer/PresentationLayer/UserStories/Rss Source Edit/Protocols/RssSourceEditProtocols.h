@@ -19,6 +19,8 @@
 @protocol RssSourceEditPresenterProtocol <NSObject>
 - (void) fetchRssSourceModel;
 
+- (void) saveRssWithUrl:(NSString *)url;
+
 @end
 
 #pragma mark - InteractorProtocol
@@ -28,6 +30,8 @@
 
 /** Interactor -> Presenter */
 - (void) handleRssSourceModel:(RssSourceModel *)rssSourceModel;
+
+- (void) handleSavingUrlResult:(RssSourceModel* _Nullable)rssSourceModel error:(NSString*)error;
 
 @end
 
@@ -42,6 +46,8 @@
 
 - (void) fetchRssSourceModel;
 
+- (void) saveRssWithUrl:(NSString *)url;
+
 @end
 
 #pragma mark - ViewProtocol
@@ -52,6 +58,10 @@
 
 - (void) configureForEditModeWith:(RssSourceModel *)rssSourceModel;
 - (void) configureForNewMode;
+
+- (void) startSavingLoader;
+- (void) stopSavingLoaderSuccessfully;
+- (void) stopSavingLoaderWithError:(NSString *)error;
 
 
 

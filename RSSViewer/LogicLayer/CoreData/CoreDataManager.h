@@ -12,6 +12,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CoreDataManager : NSObject
++ (id)sharedManager;
+
 @property (nonatomic, readonly) NSManagedObjectContext * readContext;
 
 

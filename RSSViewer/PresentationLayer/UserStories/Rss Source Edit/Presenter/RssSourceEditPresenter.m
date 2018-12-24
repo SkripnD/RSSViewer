@@ -30,6 +30,11 @@
     [self.interactor fetchRssSourceModel];
 }
 
+- (void) saveRssWithUrl:(NSString *)url {
+    [self.interactor saveRssWithUrl:url];
+    [self.view startSavingLoader];
+}
+
 
 #pragma mark - RssSourceEditInteractorOutputProtocol
 
@@ -40,6 +45,16 @@
             break;
         case RssSourceModelStateNormal:
             [self.view configureForEditModeWith:rssSourceModel];
+    }
+}
+
+- (void) handleSavingUrlResult:(RssSourceModel *)rssSourceModel error:(NSString *)error {
+    // Error
+    if (rssSourceModel == nil) {
+        [self.view stopSavingLoaderWithError:error];
+    } else {
+        [self.view stopSavingLoaderSuccessfully];
+        [self.view configureForEditModeWith:rssSourceModel];
     }
 }
 

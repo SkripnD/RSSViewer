@@ -18,7 +18,7 @@ typedef NS_ENUM(NSInteger, RssSourceModelState) {
 
 @interface RssSourceModel : NSObject<PlainModelMappable>
 
-@property (nonatomic, strong) NSString * identifier;
+@property (nonatomic, strong) NSString * hashId;
 @property (nonatomic, strong) NSString * url;
 @property (nonatomic, strong) NSString * name;
 @property (nonatomic, strong) NSDate * dateSynced;
