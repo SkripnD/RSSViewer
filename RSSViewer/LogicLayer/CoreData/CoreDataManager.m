@@ -16,7 +16,7 @@
 @implementation CoreDataManager
 @synthesize persistentContainer = _persistentContainer;
 
-+ (id)sharedManager {
++ (CoreDataManager*)sharedManager {
     static CoreDataManager *shared = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -28,6 +28,7 @@
 - (NSPersistentContainer *)persistentContainer {
     if (!_persistentContainer) {
         _persistentContainer = [[NSPersistentContainer alloc] initWithName:@"RSSViewer"];
+        _persistentContainer.viewContext.automaticallyMergesChangesFromParent = YES;
         [_persistentContainer loadPersistentStoresWithCompletionHandler:^(NSPersistentStoreDescription *storeDescription, NSError *error) {
             if (error != nil) {
 

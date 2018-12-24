@@ -156,7 +156,7 @@
                         <viewLayoutGuide key="safeArea" id="uQG-Et-0pa"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="kHD-TY-8Q2">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="BOb-Xq-AD3">
+                        <barButtonItem key="rightBarButtonItem" title="Сохранить" id="BOb-Xq-AD3">
                             <connections>
                                 <action selector="saveButtonDidTap:" destination="bWg-g1-AZi" id="5NO-l5-FxF"/>
                             </connections>

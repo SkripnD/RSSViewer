@@ -20,10 +20,6 @@
 }
 
 - (void) mapFromManagedObject:(NSManagedObject *)managedObject {
-    if (![managedObject isMemberOfClass:[RssSource class]]) {
-        return;
-    }
-
     RssSource * rssSource = (RssSource *)managedObject;
     self.hashId = rssSource.hashId;
     self.url = rssSource.url;

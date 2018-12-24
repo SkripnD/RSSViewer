@@ -55,6 +55,8 @@
 }
 
 - (void) setupCacheTrackingWithCacheRequest:(CacheRequest *)cacheRequest {
+    self.cacheTracker = [CacheTracker new];
+    self.cacheTracker.delegate = self;
     [self.cacheTracker setupWithCacheRequest:cacheRequest];
     CacheTransactionBatch *initialBatch = [self.cacheTracker obtainTransactionBatchFromCurrentCache];
     [self.presenter didProcessCacheTransaction:initialBatch];

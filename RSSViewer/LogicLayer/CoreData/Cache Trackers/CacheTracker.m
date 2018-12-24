@@ -15,7 +15,6 @@
 #import "PlainModelsFactory.h"
 
 @interface CacheTracker()<NSFetchedResultsControllerDelegate>
-@property (nonatomic, strong) CoreDataManager * coreDataManager;
 @property (nonatomic, strong) NSFetchedResultsController * fetchController;
 @property (nonatomic, strong) CacheRequest * cacheRequest;
 @property (nonatomic, strong) CacheTransactionBatch * transactionBatch;
@@ -30,11 +29,10 @@
 
 - (void)setupWithCacheRequest:(CacheRequest *)cacheRequest {
     self.objectsFactory = [PlainModelsFactory new];
-    self.coreDataManager = [CoreDataManager new];
 
     self.cacheRequest = cacheRequest;
 
-    NSManagedObjectContext *defaultContext = self.coreDataManager.readContext;
+    NSManagedObjectContext *defaultContext = [CoreDataManager sharedManager].readContext;
     NSFetchRequest *fetchRequest = [self fetchRequestWithCacheRequest:cacheRequest];
     self.fetchController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
                                                                managedObjectContext:defaultContext

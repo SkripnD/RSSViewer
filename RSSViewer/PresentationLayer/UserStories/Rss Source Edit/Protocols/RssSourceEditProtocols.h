@@ -10,7 +10,10 @@
 
 #pragma mark - WireFrameProtocol
 
+@class UINavigationController;
 @protocol RssSourceEditWireframeProtocol <NSObject>
+
+- (void) goBackForNavigationController:(UINavigationController*) navigationController;
 
 @end
 
@@ -20,6 +23,8 @@
 - (void) fetchRssSourceModel;
 
 - (void) saveRssWithUrl:(NSString *)url;
+
+- (void) goBackForNavigationController:(UINavigationController*) navigationController;
 
 @end
 

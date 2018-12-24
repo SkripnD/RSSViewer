@@ -31,8 +31,12 @@
 }
 
 - (void) saveRssWithUrl:(NSString *)url {
-    [self.interactor saveRssWithUrl:url];
     [self.view startSavingLoader];
+    [self.interactor saveRssWithUrl:url];
+}
+
+- (void) goBackForNavigationController:(UINavigationController *)navigationController {
+    [self.router goBackForNavigationController:navigationController];
 }
 
 

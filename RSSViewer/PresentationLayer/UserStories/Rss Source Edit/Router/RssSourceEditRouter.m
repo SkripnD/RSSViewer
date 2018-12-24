@@ -33,4 +33,11 @@
     return [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
 }
 
+
+#pragma mark - RssSourceEditWireframeProtocol
+
+- (void) goBackForNavigationController:(UINavigationController*)navigationController {
+    [navigationController popViewControllerAnimated:YES];
+}
+
 @end

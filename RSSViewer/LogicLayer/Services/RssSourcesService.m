@@ -18,7 +18,6 @@
 typedef void (^ParsingCompletion)(MWFeedInfo * _Nullable feedInfo);
 
 @interface RssSourcesService()<MWFeedParserDelegate>
-@property (nonatomic, strong) CoreDataManager * coreDataManager;
 @property (nonatomic, strong) PlainModelsFactory * modelsFactory;
 @property (nonatomic, strong) MWFeedParser * feedParser;
 @property (copy, nonatomic) ParsingCompletion parsingCompletion;
@@ -27,16 +26,10 @@ typedef void (^ParsingCompletion)(MWFeedInfo * _Nullable feedInfo);
 
 @implementation RssSourcesService
 
-- (id) init {
-    if (self = [super init]) {
-        self.coreDataManager = [CoreDataManager new];
-    }
-    return self;
-}
-
 - (void) createRssSource:(RssSourceModel *)fromModel completion:(nonnull void (^)(BOOL, RssSourceModel * _Nullable, NSString * _Nullable))completion {
     if ([self isUrlExist:fromModel.url]) {
         completion(NO, nil, @"Rss уже существует!");
+        return;
     }
 
 
@@ -47,14 +40,14 @@ typedef void (^ParsingCompletion)(MWFeedInfo * _Nullable feedInfo);
             completion(NO, nil, @"Ошибка чтения Rss");
             return;
         }
-        RssSource * item = [[RssSource alloc] initWithContext:weakSelf.coreDataManager.readContext];
+        RssSource * item = [[RssSource alloc] initWithContext:[CoreDataManager sharedManager].readContext];
         item.name = feedInfo.title;
         item.url = _fromModel.url;
         item.hashId = [_fromModel.url MD5hash];
         item.dateCreated = [NSDate date];
-        [weakSelf.coreDataManager.readContext save:nil];
+        [[CoreDataManager sharedManager].readContext save:nil];
 
-        id plainModel = [weakSelf.modelsFactory plainModelFromManagedObject:item];
+        __block RssSourceModel * plainModel = (RssSourceModel *)[weakSelf.modelsFactory plainModelFromManagedObject:item];
         completion(YES, plainModel, nil);
     };
 
@@ -75,8 +68,8 @@ typedef void (^ParsingCompletion)(MWFeedInfo * _Nullable feedInfo);
 #pragma mark - Private
 
 - (BOOL) isUrlExist:(NSString *) rssUrl {
-    NSFetchRequest * request = [RssSource fetchRequestByUrl:rssUrl withContext:self.coreDataManager.readContext];
-    NSArray * objects = [self.coreDataManager.readContext executeFetchRequest:request error:nil];
+    NSFetchRequest * request = [RssSource fetchRequestByUrl:rssUrl withContext:[CoreDataManager sharedManager].readContext];
+    NSArray * objects = [[CoreDataManager sharedManager].readContext executeFetchRequest:request error:nil];
 
     return [objects count] >= 1;
 }

@@ -13,7 +13,6 @@
 
 @interface RssSourceEditViewController()
 @property (weak, nonatomic) IBOutlet TextInputView *urlInputView;
-@property (nonatomic, strong) MBProgressHUD *progressHud;
 
 @end
 
@@ -38,21 +37,24 @@
 }
 
 - (void) startSavingLoader {
-    self.progressHud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.view animated:NO];
 }
 
 - (void) stopSavingLoaderSuccessfully {
-    [self.progressHud hideAnimated:YES];
-    self.progressHud = nil;
+    [MBProgressHUD hideHUDForView:self.view animated:NO];
+
+    [self.presenter goBackForNavigationController:self.navigationController];
 }
 
 - (void) stopSavingLoaderWithError:(NSString *)error {
-    self.progressHud.mode = MBProgressHUDModeAnnularDeterminate;
-    self.progressHud.label.text = error;
+    [MBProgressHUD hideHUDForView:self.view animated:NO];
 
-    __weak typeof(self)weakSelf = self;
+    MBProgressHUD * hud = [MBProgressHUD showHUDAddedTo:self.view animated:NO];
+    hud.mode = MBProgressHUDModeText;
+    hud.label.text = error;
+
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [weakSelf.progressHud hideAnimated:YES];
+        [MBProgressHUD hideHUDForView:self.view animated:NO];
     });
 }
 
