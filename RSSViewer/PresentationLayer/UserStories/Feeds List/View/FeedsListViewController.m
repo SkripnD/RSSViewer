@@ -28,6 +28,8 @@ static NSString * kCellFeedSourceIdentifier = @"FeedListTableViewCell";
     self.feedSources = [NSMutableArray new];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 44.0;
 
     [self.presenter startFetchFeedSources];
 }

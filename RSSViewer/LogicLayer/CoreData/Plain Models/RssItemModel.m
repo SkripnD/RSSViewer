@@ -8,7 +8,7 @@
 
 #import "RssItemModel.h"
 #import <CoreData/CoreData.h>
-#import "RssItem+CoreDataProperties.h"
+#import "RssItem+CoreDataClass.h"
 
 @implementation RssItemModel
 

@@ -10,10 +10,6 @@
 
 @implementation RssItem (CoreDataProperties)
 
-+ (NSFetchRequest<RssItem *> *)fetchRequest {
-	return [NSFetchRequest fetchRequestWithEntityName:@"RssItem"];
-}
-
 @dynamic dateCreated;
 @dynamic descriptionText;
 @dynamic guid;

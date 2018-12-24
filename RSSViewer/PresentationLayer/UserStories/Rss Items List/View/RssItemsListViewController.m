@@ -31,6 +31,8 @@ static NSString * kCellRssItemIdentifier = @"RssItemTableViewCell";
     self.rssItems = [NSMutableArray new];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 44.0;
 
     [self.presenter fetchRssItems];
 }

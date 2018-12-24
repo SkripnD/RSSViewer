@@ -8,8 +8,8 @@
 
 #import "PlainModelsFactory.h"
 #import <CoreData/CoreData.h>
-#import "RssSource+CoreDataProperties.h"
-#import "RssItem+CoreDataProperties.h"
+#import "RssSource+CoreDataClass.h"
+#import "RssItem+CoreDataClass.h"
 #import "RssSourceModel.h"
 #import "RssItemModel.h"
 

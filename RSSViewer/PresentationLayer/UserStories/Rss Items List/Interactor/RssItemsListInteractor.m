@@ -10,7 +10,7 @@
 #import "RssSourceModel.h"
 #import "CacheRequest.h"
 #import "CacheTracker.h"
-#import "RssItem+CoreDataProperties.h"
+#import "RssItem+CoreDataClass.h"
 #import "CacheTrackingProtocol.h"
 
 @interface RssItemsListInteractor()<CacheTrackingProtocol>

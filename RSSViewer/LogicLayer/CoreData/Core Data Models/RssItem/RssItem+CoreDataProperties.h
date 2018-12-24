@@ -13,8 +13,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface RssItem (CoreDataProperties)
 
-+ (NSFetchRequest<RssItem *> *)fetchRequest;
-
 @property (nullable, nonatomic, copy) NSDate *dateCreated;
 @property (nullable, nonatomic, copy) NSString *descriptionText;
 @property (nullable, nonatomic, copy) NSString *guid;
