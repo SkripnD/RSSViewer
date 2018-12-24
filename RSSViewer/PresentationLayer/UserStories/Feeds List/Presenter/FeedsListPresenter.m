@@ -39,6 +39,11 @@
     [self.router openRssEditControllerWith:navigationController forRssSource:rssSource];
 }
 
+- (void) openViewRssControllerFor:(NSIndexPath *)indexPath navigationController:(UINavigationController *)navigationController {
+    RssSourceModel * rssSource = [self.interactor rssSourceModelForIndexPath:indexPath];
+    [self.router openRssViewControllerWith:navigationController forRssSource:rssSource];
+}
+
 
 #pragma mark - FeedsListInteractorOutputProtocol
 

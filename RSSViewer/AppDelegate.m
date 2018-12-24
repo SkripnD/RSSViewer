@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "FeedsListRouter.h"
+#import "RssSourceUpdaterService.h"
 
 @interface AppDelegate ()
 
@@ -26,6 +27,7 @@
     self.window.rootViewController = navController;
     [self.window makeKeyAndVisible];
 
+    [[RssSourceUpdaterService sharedService] setupWithSources];
     return YES;
 }
 

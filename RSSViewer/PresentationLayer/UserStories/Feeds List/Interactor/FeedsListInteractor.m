@@ -9,13 +9,14 @@
 #import "FeedsListInteractor.h"
 #import "CacheRequest.h"
 #import "CacheTracker.h"
+#import "RssSourcesService.h"
 #import "RssSource+CoreDataProperties.h"
-
 #import "CacheTrackingProtocol.h"
 
 @class RssSourceModel;
-@interface FeedsListInteractor()<NSFetchedResultsControllerDelegate, CacheTrackingProtocol>
+@interface FeedsListInteractor()<CacheTrackingProtocol>
 @property (nonatomic, strong) CacheTracker * cacheTracker;
+@property (nonatomic, strong) RssSourcesService * rssSourcesService;
 
 @end
 
@@ -34,8 +35,10 @@
 }
 
 - (void) fetchFeedSources {
-    self.cacheTracker = [CacheTracker new];
+    self.rssSourcesService = [RssSourcesService new];
+    [self.rssSourcesService setupDefaultSourcesIfNeeded];
 
+    self.cacheTracker = [CacheTracker new];
     CacheRequest * cacheRequest = [CacheRequest requestWithPredicate:nil
                                                 sortDescriptors:@[[[NSSortDescriptor alloc] initWithKey:@"dateCreated" ascending:YES]]
                                                     objectClass:[RssSource class] filterValue:@""];

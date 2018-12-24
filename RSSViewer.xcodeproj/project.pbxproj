@@ -11,6 +11,14 @@
 		E911EF4821D0C541008A7F8F /* RssSourcesService.m in Sources */ = {isa = PBXBuildFile; fileRef = E911EF4721D0C541008A7F8F /* RssSourcesService.m */; };
 		E911EF4B21D0C76F008A7F8F /* RssSource+FetchRequests.m in Sources */ = {isa = PBXBuildFile; fileRef = E911EF4A21D0C76F008A7F8F /* RssSource+FetchRequests.m */; };
 		E911EF5021D0EE0D008A7F8F /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = E911EF4F21D0EE0D008A7F8F /* NSString+Hash.m */; };
+		E911EF5321D0FE99008A7F8F /* RssSourceUpdaterService.m in Sources */ = {isa = PBXBuildFile; fileRef = E911EF5221D0FE99008A7F8F /* RssSourceUpdaterService.m */; };
+		E911EF5C21D1010D008A7F8F /* RssItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E911EF5B21D1010D008A7F8F /* RssItemModel.m */; };
+		E911EF6121D10233008A7F8F /* RssItem+FetchRequests.m in Sources */ = {isa = PBXBuildFile; fileRef = E911EF6021D10233008A7F8F /* RssItem+FetchRequests.m */; };
+		E911EF6C21D103B6008A7F8F /* RssItemsListPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = E911EF6221D103B6008A7F8F /* RssItemsListPresenter.m */; };
+		E911EF6D21D103B6008A7F8F /* RssItemsListRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = E911EF6521D103B6008A7F8F /* RssItemsListRouter.m */; };
+		E911EF6E21D103B6008A7F8F /* RssItemsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E911EF6721D103B6008A7F8F /* RssItemsListViewController.m */; };
+		E911EF6F21D103B6008A7F8F /* RssItemsListInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = E911EF6821D103B6008A7F8F /* RssItemsListInteractor.m */; };
+		E911EF7A21D1077E008A7F8F /* RssItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E911EF7921D1077E008A7F8F /* RssItemTableViewCell.m */; };
 		E9CC69BC21CC83E100BC205A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC69BB21CC83E100BC205A /* AppDelegate.m */; };
 		E9CC69BF21CC83E100BC205A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC69BE21CC83E100BC205A /* ViewController.m */; };
 		E9CC69C221CC83E100BC205A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9CC69C021CC83E100BC205A /* Main.storyboard */; };
@@ -49,6 +57,23 @@
 		E911EF4A21D0C76F008A7F8F /* RssSource+FetchRequests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "RssSource+FetchRequests.m"; sourceTree = "<group>"; };
 		E911EF4E21D0EE0D008A7F8F /* NSString+Hash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Hash.h"; sourceTree = "<group>"; };
 		E911EF4F21D0EE0D008A7F8F /* NSString+Hash.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hash.m"; sourceTree = "<group>"; };
+		E911EF5121D0FE99008A7F8F /* RssSourceUpdaterService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RssSourceUpdaterService.h; sourceTree = "<group>"; };
+		E911EF5221D0FE99008A7F8F /* RssSourceUpdaterService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RssSourceUpdaterService.m; sourceTree = "<group>"; };
+		E911EF5A21D1010D008A7F8F /* RssItemModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RssItemModel.h; sourceTree = "<group>"; };
+		E911EF5B21D1010D008A7F8F /* RssItemModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RssItemModel.m; sourceTree = "<group>"; };
+		E911EF5F21D10233008A7F8F /* RssItem+FetchRequests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RssItem+FetchRequests.h"; sourceTree = "<group>"; };
+		E911EF6021D10233008A7F8F /* RssItem+FetchRequests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "RssItem+FetchRequests.m"; sourceTree = "<group>"; };
+		E911EF6221D103B6008A7F8F /* RssItemsListPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RssItemsListPresenter.m; sourceTree = "<group>"; };
+		E911EF6321D103B6008A7F8F /* RssItemsListInteractor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RssItemsListInteractor.h; sourceTree = "<group>"; };
+		E911EF6421D103B6008A7F8F /* RssItemsListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RssItemsListViewController.h; sourceTree = "<group>"; };
+		E911EF6521D103B6008A7F8F /* RssItemsListRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RssItemsListRouter.m; sourceTree = "<group>"; };
+		E911EF6621D103B6008A7F8F /* RssItemsListProtocols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RssItemsListProtocols.h; sourceTree = "<group>"; };
+		E911EF6721D103B6008A7F8F /* RssItemsListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RssItemsListViewController.m; sourceTree = "<group>"; };
+		E911EF6821D103B6008A7F8F /* RssItemsListInteractor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RssItemsListInteractor.m; sourceTree = "<group>"; };
+		E911EF6921D103B6008A7F8F /* RssItemsListPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RssItemsListPresenter.h; sourceTree = "<group>"; };
+		E911EF6B21D103B6008A7F8F /* RssItemsListRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RssItemsListRouter.h; sourceTree = "<group>"; };
+		E911EF7821D1077E008A7F8F /* RssItemTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RssItemTableViewCell.h; sourceTree = "<group>"; };
+		E911EF7921D1077E008A7F8F /* RssItemTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RssItemTableViewCell.m; sourceTree = "<group>"; };
 		E9CC69B721CC83E100BC205A /* RSSViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSSViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9CC69BA21CC83E100BC205A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E9CC69BB21CC83E100BC205A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -158,6 +183,8 @@
 			children = (
 				E911EF4621D0C541008A7F8F /* RssSourcesService.h */,
 				E911EF4721D0C541008A7F8F /* RssSourcesService.m */,
+				E911EF5121D0FE99008A7F8F /* RssSourceUpdaterService.h */,
+				E911EF5221D0FE99008A7F8F /* RssSourceUpdaterService.m */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -169,6 +196,94 @@
 				E911EF4F21D0EE0D008A7F8F /* NSString+Hash.m */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		E911EF5D21D10203008A7F8F /* RssSource */ = {
+			isa = PBXGroup;
+			children = (
+				E9CC69FD21CC928B00BC205A /* RssSource+CoreDataClass.h */,
+				E9CC69FB21CC928B00BC205A /* RssSource+CoreDataClass.m */,
+				E9CC69FE21CC928B00BC205A /* RssSource+CoreDataProperties.h */,
+				E9CC69FC21CC928B00BC205A /* RssSource+CoreDataProperties.m */,
+				E911EF4921D0C759008A7F8F /* RssSource+FetchRequests.h */,
+				E911EF4A21D0C76F008A7F8F /* RssSource+FetchRequests.m */,
+			);
+			path = RssSource;
+			sourceTree = "<group>";
+		};
+		E911EF5E21D1020F008A7F8F /* RssItem */ = {
+			isa = PBXGroup;
+			children = (
+				E911EF5F21D10233008A7F8F /* RssItem+FetchRequests.h */,
+				E911EF6021D10233008A7F8F /* RssItem+FetchRequests.m */,
+			);
+			path = RssItem;
+			sourceTree = "<group>";
+		};
+		E911EF7121D103BA008A7F8F /* Rss Items List */ = {
+			isa = PBXGroup;
+			children = (
+				E911EF7621D103DD008A7F8F /* Protocols */,
+				E911EF7521D103D8008A7F8F /* Interactor */,
+				E911EF7421D103D5008A7F8F /* Router */,
+				E911EF7321D103D1008A7F8F /* Presenter */,
+				E911EF7221D103CD008A7F8F /* View */,
+			);
+			path = "Rss Items List";
+			sourceTree = "<group>";
+		};
+		E911EF7221D103CD008A7F8F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E911EF7721D10768008A7F8F /* Cells */,
+				E911EF6421D103B6008A7F8F /* RssItemsListViewController.h */,
+				E911EF6721D103B6008A7F8F /* RssItemsListViewController.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E911EF7321D103D1008A7F8F /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				E911EF6921D103B6008A7F8F /* RssItemsListPresenter.h */,
+				E911EF6221D103B6008A7F8F /* RssItemsListPresenter.m */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		E911EF7421D103D5008A7F8F /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				E911EF6B21D103B6008A7F8F /* RssItemsListRouter.h */,
+				E911EF6521D103B6008A7F8F /* RssItemsListRouter.m */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		E911EF7521D103D8008A7F8F /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				E911EF6321D103B6008A7F8F /* RssItemsListInteractor.h */,
+				E911EF6821D103B6008A7F8F /* RssItemsListInteractor.m */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		E911EF7621D103DD008A7F8F /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				E911EF6621D103B6008A7F8F /* RssItemsListProtocols.h */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		E911EF7721D10768008A7F8F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E911EF7821D1077E008A7F8F /* RssItemTableViewCell.h */,
+				E911EF7921D1077E008A7F8F /* RssItemTableViewCell.m */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		E9CC69AE21CC83E100BC205A = {
@@ -208,6 +323,7 @@
 		E9CC69D321CC854E00BC205A /* UserStories */ = {
 			isa = PBXGroup;
 			children = (
+				E911EF7121D103BA008A7F8F /* Rss Items List */,
 				E9CC6A3421D0691E00BC205A /* Rss Source Edit */,
 				E9CC69D421CC859000BC205A /* Feeds List */,
 			);
@@ -296,12 +412,8 @@
 		E9CC69EE21CC922800BC205A /* Core Data Models */ = {
 			isa = PBXGroup;
 			children = (
-				E9CC69FD21CC928B00BC205A /* RssSource+CoreDataClass.h */,
-				E9CC69FB21CC928B00BC205A /* RssSource+CoreDataClass.m */,
-				E9CC69FE21CC928B00BC205A /* RssSource+CoreDataProperties.h */,
-				E9CC69FC21CC928B00BC205A /* RssSource+CoreDataProperties.m */,
-				E911EF4921D0C759008A7F8F /* RssSource+FetchRequests.h */,
-				E911EF4A21D0C76F008A7F8F /* RssSource+FetchRequests.m */,
+				E911EF5E21D1020F008A7F8F /* RssItem */,
+				E911EF5D21D10203008A7F8F /* RssSource */,
 			);
 			path = "Core Data Models";
 			sourceTree = "<group>";
@@ -346,6 +458,8 @@
 				E9CC6A1B21CFC5B100BC205A /* Protocols */,
 				E9CC6A1521CE7B4C00BC205A /* RssSourceModel.h */,
 				E9CC6A1621CE7B4C00BC205A /* RssSourceModel.m */,
+				E911EF5A21D1010D008A7F8F /* RssItemModel.h */,
+				E911EF5B21D1010D008A7F8F /* RssItemModel.m */,
 				E9CC6A1821CE7BCB00BC205A /* PlainModelsFactory.h */,
 				E9CC6A1921CE7BCB00BC205A /* PlainModelsFactory.m */,
 			);
@@ -530,19 +644,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E911EF6C21D103B6008A7F8F /* RssItemsListPresenter.m in Sources */,
 				E9CC69BF21CC83E100BC205A /* ViewController.m in Sources */,
+				E911EF5C21D1010D008A7F8F /* RssItemModel.m in Sources */,
+				E911EF7A21D1077E008A7F8F /* RssItemTableViewCell.m in Sources */,
 				E9CC6A0D21CCA24700BC205A /* CacheTransaction.m in Sources */,
 				E9CC6A0421CC947A00BC205A /* FeedListTableViewCell.m in Sources */,
 				E9CC6A0021CC928C00BC205A /* RssSource+CoreDataProperties.m in Sources */,
 				E9CC69FF21CC928C00BC205A /* RssSource+CoreDataClass.m in Sources */,
+				E911EF6F21D103B6008A7F8F /* RssItemsListInteractor.m in Sources */,
 				E9CC6A0A21CCA21900BC205A /* CacheRequest.m in Sources */,
 				E9CC69DF21CC85A400BC205A /* FeedsListPresenter.m in Sources */,
 				E911EF5021D0EE0D008A7F8F /* NSString+Hash.m in Sources */,
 				E9CC6A1A21CE7BCB00BC205A /* PlainModelsFactory.m in Sources */,
+				E911EF6D21D103B6008A7F8F /* RssItemsListRouter.m in Sources */,
+				E911EF5321D0FE99008A7F8F /* RssSourceUpdaterService.m in Sources */,
 				E9CC69E121CC85A400BC205A /* FeedsListViewController.m in Sources */,
 				E9CC69ED21CC893D00BC205A /* CoreDataManager.m in Sources */,
+				E911EF6121D10233008A7F8F /* RssItem+FetchRequests.m in Sources */,
 				E9CC6A4221D0693B00BC205A /* RssSourceEditInteractor.m in Sources */,
 				E911EF4821D0C541008A7F8F /* RssSourcesService.m in Sources */,
+				E911EF6E21D103B6008A7F8F /* RssItemsListViewController.m in Sources */,
 				E9CC69E021CC85A400BC205A /* FeedsListRouter.m in Sources */,
 				E9CC6A4121D0693B00BC205A /* RssSourceEditViewController.m in Sources */,
 				E9CC6A1721CE7B4C00BC205A /* RssSourceModel.m in Sources */,

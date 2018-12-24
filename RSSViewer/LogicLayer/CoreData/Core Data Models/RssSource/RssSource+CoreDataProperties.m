@@ -10,10 +10,6 @@
 
 @implementation RssSource (CoreDataProperties)
 
-+ (NSFetchRequest<RssSource *> *)fetchRequest {
-	return [NSFetchRequest fetchRequestWithEntityName:@"RssSource"];
-}
-
 @dynamic dateCreated;
 @dynamic dateSynced;
 @dynamic name;

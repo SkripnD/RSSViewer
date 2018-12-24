@@ -13,7 +13,9 @@
 @class UINavigationController;
 @class RssSourceModel;
 @protocol FeedsListWireframeProtocol <NSObject>
+
 - (void) openRssEditControllerWith:(UINavigationController*) navigationController forRssSource:(RssSourceModel* _Nullable)rssSource;
+- (void) openRssViewControllerWith:(UINavigationController*) navigationController forRssSource:(RssSourceModel* _Nonnull)rssSource;
 
 @end
 
@@ -29,6 +31,8 @@
 - (void) openNewRssControllerFor:(UINavigationController*) navigationController;
 
 - (void) openEditRssControllerFor:(NSIndexPath *)indexPath navigationController:(UINavigationController*) navigationController;
+
+- (void) openViewRssControllerFor:(NSIndexPath *)indexPath navigationController:(UINavigationController*) navigationController;
 
 @end
 

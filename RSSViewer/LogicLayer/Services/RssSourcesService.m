@@ -9,13 +9,15 @@
 #import "RssSourcesService.h"
 #import "CoreDataManager.h"
 #import "PlainModelsFactory.h"
-#import "RssSource+FetchRequests.h"
+#import "RssSourceUpdaterService.h"
 #import "RssSourceModel.h"
 #import "MWFeedParser.h"
 
+#import "RssSource+FetchRequests.h"
 #import "NSString+Hash.h"
 
 typedef void (^ParsingCompletion)(MWFeedInfo * _Nullable feedInfo);
+
 
 @interface RssSourcesService()<MWFeedParserDelegate>
 @property (nonatomic, strong) PlainModelsFactory * modelsFactory;
@@ -33,9 +35,25 @@ typedef void (^ParsingCompletion)(MWFeedInfo * _Nullable feedInfo);
     return self;
 }
 
-- (void) createRssSource:(RssSourceModel *)fromModel completion:(nonnull void (^)(BOOL, RssSourceModel * _Nullable, NSString * _Nullable))completion {
+- (void) setupDefaultSourcesIfNeeded {
+    NSArray * defaultSources = @[
+                                        @"https://abcnews.go.com/abcnews/topstories",
+                                        @"https://abcnews.go.com/abcnews/travelheadlines",
+                                        @"https://abcnews.go.com/abcnews/worldnewsheadlines"
+                                        ];
+    
+    for (NSString * source in defaultSources) {
+        RssSourceModel * sourceModel = [[RssSourceModel alloc] initAsNew];
+        sourceModel.url = source;
+        [self createRssSource:sourceModel completion:nil];
+    }
+}
+
+- (void) createRssSource:(RssSourceModel *)fromModel completion:(nullable void (^)(BOOL, RssSourceModel * _Nullable, NSString * _Nullable))completion {
     if ([self isUrlExist:fromModel.url]) {
-        completion(NO, nil, @"Rss уже существует!");
+        if (completion) {
+            completion(NO, nil, @"Rss уже существует!");
+        }
         return;
     }
 
@@ -44,7 +62,9 @@ typedef void (^ParsingCompletion)(MWFeedInfo * _Nullable feedInfo);
     __block typeof(fromModel)_fromModel = fromModel;
     self.parsingCompletion = ^(MWFeedInfo * _Nullable feedInfo) {
         if (feedInfo == nil) {
-            completion(NO, nil, @"Ошибка чтения Rss");
+            if (completion) {
+                completion(NO, nil, @"Ошибка чтения Rss");
+            }
             return;
         }
         RssSource * item = [[RssSource alloc] initWithContext:[CoreDataManager sharedManager].readContext];
@@ -55,7 +75,10 @@ typedef void (^ParsingCompletion)(MWFeedInfo * _Nullable feedInfo);
         [[CoreDataManager sharedManager].readContext save:nil];
 
         id plainModel = [weakSelf.modelsFactory plainModelFromManagedObject:item];
-        completion(YES, plainModel, nil);
+        [[RssSourceUpdaterService sharedService] appendSourceToUpdate:plainModel];
+        if (completion) {
+            completion(YES, plainModel, nil);
+        }
     };
 
     NSURL *feedURL = [NSURL URLWithString:fromModel.url];
@@ -67,7 +90,7 @@ typedef void (^ParsingCompletion)(MWFeedInfo * _Nullable feedInfo);
 
 }
 
-- (void) updateRssSource:(RssSourceModel *)fromModel completion:(nonnull void (^)(BOOL, RssSourceModel * _Nullable, NSString * _Nullable))completion {
+- (void) updateRssSource:(RssSourceModel *)fromModel completion:(nullable void (^)(BOOL, RssSourceModel * _Nullable, NSString * _Nullable))completion {
     
 }
 

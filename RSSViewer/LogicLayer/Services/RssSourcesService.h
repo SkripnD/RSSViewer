@@ -12,8 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 @class RssSourceModel;
 @interface RssSourcesService : NSObject
 
-- (void) createRssSource:(RssSourceModel*)fromModel completion:(void (^)(BOOL success, RssSourceModel * _Nullable rssSourceModel, NSString * _Nullable errorText))completion;
-- (void) updateRssSource:(RssSourceModel*)fromModel completion:(void (^)(BOOL success, RssSourceModel * _Nullable updatedModel, NSString * _Nullable errorText))completion;
+- (void) setupDefaultSourcesIfNeeded;
+
+- (void) createRssSource:(RssSourceModel*)fromModel completion:(nullable void (^)(BOOL success, RssSourceModel * _Nullable rssSourceModel, NSString * _Nullable errorText))completion;
+
+- (void) updateRssSource:(RssSourceModel*)fromModel completion:(nullable void (^)(BOOL success, RssSourceModel * _Nullable updatedModel, NSString * _Nullable errorText))completion;
 
 @end
 

@@ -11,7 +11,8 @@
 #import "FeedsListInteractor.h"
 #import "FeedsListPresenter.h"
 #import "RssSourceEditRouter.h"
- 
+ #import "RssItemsListRouter.h"
+
 @implementation FeedsListRouter
 
 + (UIViewController *)createModule
@@ -37,6 +38,11 @@
 
 - (void) openRssEditControllerWith:(UINavigationController*) navigationController forRssSource:(RssSourceModel* _Nullable)rssSource {
     UIViewController * rssSourceViewController = [RssSourceEditRouter createModuleWithRssSource:rssSource];
+    [navigationController pushViewController:rssSourceViewController animated:YES];
+}
+
+- (void) openRssViewControllerWith:(UINavigationController*) navigationController forRssSource:(RssSourceModel* _Nonnull)rssSource {
+    UIViewController * rssSourceViewController = [RssItemsListRouter createModuleWithRssSource:rssSource];
     [navigationController pushViewController:rssSourceViewController animated:YES];
 }
  

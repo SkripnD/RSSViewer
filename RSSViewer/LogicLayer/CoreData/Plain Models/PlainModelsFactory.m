@@ -9,7 +9,9 @@
 #import "PlainModelsFactory.h"
 #import <CoreData/CoreData.h>
 #import "RssSource+CoreDataProperties.h"
+#import "RssItem+CoreDataProperties.h"
 #import "RssSourceModel.h"
+#import "RssItemModel.h"
 
 @implementation PlainModelsFactory
 
@@ -35,10 +37,8 @@
     static dispatch_once_t plainClassesToken;
     dispatch_once(&plainClassesToken, ^{
         _plainClasses = [NSMutableDictionary new];
-        #pragma clang diagnostic push
-        #pragma clang diagnostic ignored "-Wshadow-ivar"
         [_plainClasses setObject:[RssSourceModel class] forKey:[RssSource class]];
-        #pragma clang diagnostic pop
+        [_plainClasses setObject:[RssItemModel class] forKey:[RssItem class]];
     });
 
     return _plainClasses;

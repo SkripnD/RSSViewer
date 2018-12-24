@@ -1,35 +1,38 @@
 //
-//  FeedsListViewController.m
+//  RssItemsListViewController.m
 //  RSSViewer
 //
-//  Created by Denis Skripnichenko on 21.12.2018.
+//  Created by Denis Skripnichenko on 24.12.2018.
 //  Copyright © 2018 Denis Skripnichenko. All rights reserved.
 //
 
-#import "FeedsListViewController.h"
-#import "FeedListTableViewCell.h"
+#import "RssItemsListViewController.h"
+#import "RssItemTableViewCell.h"
 #import "CacheTransaction.h"
-#import "RssSourceModel.h"
+#import "RssItemModel.h"
 
-static NSString * kCellFeedSourceIdentifier = @"FeedListTableViewCell";
+static NSString * kCellRssItemIdentifier = @"RssItemTableViewCell";
 
-@interface FeedsListViewController()<UITableViewDelegate, UITableViewDataSource>
+@interface RssItemsListViewController()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) IBOutlet UITableView * tableView;
-@property (nonatomic, strong) NSMutableArray * feedSources;
+@property (nonatomic, strong) NSMutableArray * rssItems;
 
 @end
 
-@implementation FeedsListViewController
+@implementation RssItemsListViewController
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-    self.feedSources = [NSMutableArray new];
+    self.title = self.sourceTitle;
+
+    self.rssItems = [NSMutableArray new];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
 
-    [self.presenter startFetchFeedSources];
+    [self.presenter fetchRssItems];
 }
 
 
@@ -39,7 +42,7 @@ static NSString * kCellFeedSourceIdentifier = @"FeedListTableViewCell";
     NSMutableArray * indexPaths = [NSMutableArray new];
     for (CacheTransaction *transaction in transactions) {
         [indexPaths addObject:transaction.updatedIndexPath];
-        [self.feedSources insertObject:transaction.object atIndex:transaction.updatedIndexPath.row];
+        [self.rssItems insertObject:transaction.object atIndex:transaction.updatedIndexPath.row];
     }
 
     [self.tableView beginUpdates];
@@ -67,7 +70,7 @@ static NSString * kCellFeedSourceIdentifier = @"FeedListTableViewCell";
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.feedSources count];
+    return [self.rssItems count];
 }
 
 - (UIView *) tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
@@ -83,21 +86,15 @@ static NSString * kCellFeedSourceIdentifier = @"FeedListTableViewCell";
 }
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    FeedListTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:kCellFeedSourceIdentifier];
-    [cell updateWith:[self.feedSources objectAtIndex:indexPath.row]];
+    RssItemTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:kCellRssItemIdentifier];
+    [cell updateWith:[self.rssItems objectAtIndex:indexPath.row]];
     return cell;
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [self.presenter openViewRssControllerFor:indexPath navigationController:self.navigationController];
+    //[self.presenter openEditRssControllerFor:indexPath navigationController:self.navigationController];
 }
 
-
-#pragma mark - UI Actions
-
-- (IBAction)addButtonDidTap:(id)sender {
-    [self.presenter openNewRssControllerFor:self.navigationController];
-}
 
 @end

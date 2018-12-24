@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface RssSource (FetchRequests)
 
++ (NSFetchRequest<RssSource *> *)fetchRequestAllWithContext:(NSManagedObjectContext *)context;
 + (NSFetchRequest<RssSource *> *)fetchRequestByUrl:(NSString *)rssUrl withContext:(NSManagedObjectContext *)context;
 
 @end

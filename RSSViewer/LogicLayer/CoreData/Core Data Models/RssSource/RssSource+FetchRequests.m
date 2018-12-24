@@ -10,6 +10,13 @@
 
 @implementation RssSource (FetchRequests)
 
++ (NSFetchRequest<RssSource *> *)fetchRequestAllWithContext:(NSManagedObjectContext *)context {
+    NSFetchRequest *fetch = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:NSStringFromClass([RssSource class])  inManagedObjectContext: context];
+    [fetch setEntity:entityDescription];
+    return fetch;
+}
+
 + (NSFetchRequest<RssSource *> *)fetchRequestByUrl:(NSString *)rssUrl withContext:(NSManagedObjectContext *)context {
     NSFetchRequest *fetch = [[NSFetchRequest alloc] init];
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:NSStringFromClass([RssSource class])  inManagedObjectContext: context];

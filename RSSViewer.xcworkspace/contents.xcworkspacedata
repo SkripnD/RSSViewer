@@ -2,6 +2,18 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:RSSViewer/LogicLayer/CoreData/Core Data Models/RssItem/RssItem+CoreDataProperties.h">
+   </FileRef>
+   <FileRef
+      location = "group:RSSViewer/LogicLayer/CoreData/Core Data Models/RssItem/RssItem+CoreDataClass.h">
+   </FileRef>
+   <FileRef
+      location = "group:RSSViewer/LogicLayer/CoreData/Core Data Models/RssItem/RssItem+CoreDataClass.m">
+   </FileRef>
+   <FileRef
+      location = "group:RSSViewer/LogicLayer/CoreData/Core Data Models/RssItem/RssItem+CoreDataProperties.m">
+   </FileRef>
+   <FileRef
       location = "group:RSSViewer.xcodeproj">
    </FileRef>
    <FileRef
