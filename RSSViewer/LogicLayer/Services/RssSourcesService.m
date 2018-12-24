@@ -26,6 +26,13 @@ typedef void (^ParsingCompletion)(MWFeedInfo * _Nullable feedInfo);
 
 @implementation RssSourcesService
 
+- (id) init {
+    if (self = [super init]) {
+        self.modelsFactory = [PlainModelsFactory new];
+    }
+    return self;
+}
+
 - (void) createRssSource:(RssSourceModel *)fromModel completion:(nonnull void (^)(BOOL, RssSourceModel * _Nullable, NSString * _Nullable))completion {
     if ([self isUrlExist:fromModel.url]) {
         completion(NO, nil, @"Rss уже существует!");
@@ -47,7 +54,7 @@ typedef void (^ParsingCompletion)(MWFeedInfo * _Nullable feedInfo);
         item.dateCreated = [NSDate date];
         [[CoreDataManager sharedManager].readContext save:nil];
 
-        __block RssSourceModel * plainModel = (RssSourceModel *)[weakSelf.modelsFactory plainModelFromManagedObject:item];
+        id plainModel = [weakSelf.modelsFactory plainModelFromManagedObject:item];
         completion(YES, plainModel, nil);
     };
 
@@ -82,9 +89,7 @@ typedef void (^ParsingCompletion)(MWFeedInfo * _Nullable feedInfo);
 }
 
 - (void)feedParser:(MWFeedParser *)parser didParseFeedInfo:(MWFeedInfo *)info {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        self.parsingCompletion(info);
-    });
+    self.parsingCompletion(info);
 }
 
 - (void)feedParser:(MWFeedParser *)parser didParseFeedItem:(MWFeedItem *)item {

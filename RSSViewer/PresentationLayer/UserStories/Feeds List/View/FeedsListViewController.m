@@ -79,8 +79,7 @@ static NSString * kCellFeedSourceIdentifier = @"FeedListTableViewCell";
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 78;
-    //return UITableViewAutomaticDimension;
+    return UITableViewAutomaticDimension;
 }
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
