@@ -10,6 +10,7 @@
 #import "FeedsListViewController.h"
 #import "FeedsListInteractor.h"
 #import "FeedsListPresenter.h"
+#import "RssSourceEditRouter.h"
  
 @implementation FeedsListRouter
 
@@ -29,6 +30,14 @@
 
 + (UIStoryboard *)storyboard {
     return [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+}
+
+
+#pragma mark - FeedsListWireframeProtocol
+
+- (void) openRssEditControllerWith:(UINavigationController*) navigationController forRssSource:(RssSourceModel* _Nullable)rssSource {
+    UIViewController * rssSourceViewController = [RssSourceEditRouter createModuleWithRssSource:rssSource];
+    [navigationController pushViewController:rssSourceViewController animated:YES];
 }
  
 @end

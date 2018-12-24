@@ -18,5 +18,6 @@
 @dynamic dateSynced;
 @dynamic name;
 @dynamic url;
+@dynamic identifier;
 
 @end

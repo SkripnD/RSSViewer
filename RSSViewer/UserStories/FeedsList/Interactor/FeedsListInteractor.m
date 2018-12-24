@@ -7,16 +7,15 @@
 //
  
 #import "FeedsListInteractor.h"
-#import "CoreDataManager.h"
 #import "CacheRequest.h"
-#import "FeedSourcesCacheTracker.h"
+#import "CacheTracker.h"
 #import "RssSource+CoreDataProperties.h"
 
 #import "CacheTrackingProtocol.h"
 
+@class RssSourceModel;
 @interface FeedsListInteractor()<NSFetchedResultsControllerDelegate, CacheTrackingProtocol>
-@property (nonatomic, strong) CoreDataManager * coreDataManager;
-@property (nonatomic, strong) FeedSourcesCacheTracker * cacheTracker;
+@property (nonatomic, strong) CacheTracker * cacheTracker;
 
 @end
 
@@ -35,21 +34,17 @@
 }
 
 - (void) fetchFeedSources {
-    self.coreDataManager = [CoreDataManager new];
-
-    self.cacheTracker = [FeedSourcesCacheTracker new];
-
-    NSLog(@"%@", self.coreDataManager.readContext);
-    RssSource * item = [[RssSource alloc] initWithContext:self.coreDataManager.readContext];
-    item.name = @"test";
-    item.url = @"test2";
-    [self.coreDataManager.readContext save:nil] ;
+    self.cacheTracker = [CacheTracker new];
 
     CacheRequest * cacheRequest = [CacheRequest requestWithPredicate:nil
                                                 sortDescriptors:@[[[NSSortDescriptor alloc] initWithKey:@"dateCreated" ascending:YES]]
                                                     objectClass:[RssSource class] filterValue:@""];
 
     [self setupCacheTrackingWithCacheRequest:cacheRequest];
+}
+
+- (RssSourceModel *) rssSourceModelForIndexPath:(NSIndexPath *)indexPath {
+    return [self.cacheTracker cachedObjectForIndexPath:indexPath];
 }
 
 

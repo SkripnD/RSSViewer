@@ -10,14 +10,25 @@
 
 #pragma mark - WireFrameProtocol
 
+@class UINavigationController;
+@class RssSourceModel;
 @protocol FeedsListWireframeProtocol <NSObject>
+- (void) openRssEditControllerWith:(UINavigationController*) navigationController forRssSource:(RssSourceModel* _Nullable)rssSource;
 
 @end
 
 #pragma mark - PresenterProtocol
 
 @protocol FeedsListPresenterProtocol <NSObject>
+/**
+ Метод сообщает Presenter'у о необходимости
+ загрузки списка Rss источников
+ */
 - (void) startFetchFeedSources;
+
+- (void) openNewRssControllerFor:(UINavigationController*) navigationController;
+
+- (void) openEditRssControllerFor:(NSIndexPath *)indexPath navigationController:(UINavigationController*) navigationController;
 
 @end
 
@@ -32,12 +43,17 @@
 
 @end
 
+@class RssSourceModel;
 @protocol FeedsListInteractorInputProtocol <NSObject>
 
 - (void)setPresenter:(id<FeedsListInteractorOutputProtocol>)presenter;
 - (id<FeedsListInteractorOutputProtocol>)getPresenter;
-- (void) fetchFeedSources;
+
 /** Presenter -> Interactor */
+
+- (void) fetchFeedSources;
+
+- (RssSourceModel *) rssSourceModelForIndexPath:(NSIndexPath *) indexPath;
 
 @end
 

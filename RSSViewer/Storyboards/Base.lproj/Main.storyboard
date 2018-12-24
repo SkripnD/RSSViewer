@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Feeds List View Controller-->
+        <!--Rss List-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="FeedsListViewController" id="BYZ-38-t0r" customClass="FeedsListViewController" sceneMemberID="viewController">
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sT0-qH-KAe">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FeedListTableViewCell" rowHeight="80" id="y6o-KI-aI7" customClass="FeedListTableViewCell">
@@ -75,6 +75,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Rss List" id="y8O-Cv-gzR">
+                        <barButtonItem key="rightBarButtonItem" image="addIcon" style="plain" id="6Pq-uf-hE6">
+                            <connections>
+                                <action selector="addButtonDidTap:" destination="BYZ-38-t0r" id="gmh-Ik-Wjf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="sT0-qH-KAe" id="ixy-60-CJW"/>
                     </connections>
@@ -83,5 +93,85 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="130.88455772113943"/>
         </scene>
+        <!--Title-->
+        <scene sceneID="oOd-Ra-lX6">
+            <objects>
+                <viewController storyboardIdentifier="RssSourceEditViewController" id="bWg-g1-AZi" customClass="RssSourceEditViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pmA-Ac-HHW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Z3Y-5f-Zi0">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" translatesAutoresizingMaskIntoConstraints="NO" id="nGy-8p-YcC" customClass="TextInputView">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eYO-CQ-A7y">
+                                                <rect key="frame" x="15" y="8" width="345" height="36"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="36" id="JKs-ip-CpQ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SUU-aF-Dyk">
+                                                <rect key="frame" x="15" y="52" width="345" height="46"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="46" id="ewq-VO-fqM"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="eYO-CQ-A7y" firstAttribute="leading" secondItem="nGy-8p-YcC" secondAttribute="leading" constant="15" id="1ka-IX-Gdx"/>
+                                            <constraint firstItem="SUU-aF-Dyk" firstAttribute="leading" secondItem="nGy-8p-YcC" secondAttribute="leading" constant="15" id="GV3-n2-dMd"/>
+                                            <constraint firstAttribute="bottom" secondItem="SUU-aF-Dyk" secondAttribute="bottom" constant="22" id="PSz-Qd-8ni"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="SEg-5o-Wr1"/>
+                                            <constraint firstAttribute="trailing" secondItem="SUU-aF-Dyk" secondAttribute="trailing" constant="15" id="bCZ-YQ-MhX"/>
+                                            <constraint firstAttribute="trailing" secondItem="eYO-CQ-A7y" secondAttribute="trailing" constant="15" id="gs6-bc-gRx"/>
+                                            <constraint firstItem="eYO-CQ-A7y" firstAttribute="top" secondItem="nGy-8p-YcC" secondAttribute="top" constant="8" id="poI-bX-4jw"/>
+                                            <constraint firstItem="SUU-aF-Dyk" firstAttribute="top" secondItem="eYO-CQ-A7y" secondAttribute="bottom" constant="8" id="tPB-ZF-Xve"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="textField" destination="SUU-aF-Dyk" id="ZgO-f4-rhY"/>
+                                            <outlet property="titleLabel" destination="eYO-CQ-A7y" id="4PE-cI-5ct"/>
+                                        </connections>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Z3Y-5f-Zi0" firstAttribute="top" secondItem="pmA-Ac-HHW" secondAttribute="top" id="Drw-kR-DsF"/>
+                            <constraint firstItem="uQG-Et-0pa" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Z3Y-5f-Zi0" secondAttribute="bottom" id="J34-TX-MyT"/>
+                            <constraint firstItem="Z3Y-5f-Zi0" firstAttribute="trailing" secondItem="uQG-Et-0pa" secondAttribute="trailing" id="sMh-hO-IVy"/>
+                            <constraint firstItem="Z3Y-5f-Zi0" firstAttribute="leading" secondItem="uQG-Et-0pa" secondAttribute="leading" id="vDj-pd-iL0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="uQG-Et-0pa"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="kHD-TY-8Q2">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="BOb-Xq-AD3">
+                            <connections>
+                                <action selector="saveButtonDidTap:" destination="bWg-g1-AZi" id="5NO-l5-FxF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="urlInputView" destination="nGy-8p-YcC" id="jQT-Zj-BDL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="owu-7A-AQe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="837.60000000000002" y="130.88455772113943"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="addIcon" width="26" height="26"/>
+    </resources>
 </document>

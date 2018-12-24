@@ -15,10 +15,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSFetchRequest<RssSource *> *)fetchRequest;
 
-@property (nullable, nonatomic, copy) NSDate *dateCreated;
+@property (nonnull, nonatomic, copy) NSDate *dateCreated;
 @property (nullable, nonatomic, copy) NSDate *dateSynced;
-@property (nullable, nonatomic, copy) NSString *name;
-@property (nullable, nonatomic, copy) NSString *url;
+@property (nonnull, nonatomic, copy) NSString *name;
+@property (nonnull, nonatomic, copy) NSString *url;
+@property (nonnull, nonatomic, copy) NSString *identifier;
 
 @end
 

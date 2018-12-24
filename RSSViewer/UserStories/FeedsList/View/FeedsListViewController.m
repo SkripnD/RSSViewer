@@ -79,7 +79,8 @@ static NSString * kCellFeedSourceIdentifier = @"FeedListTableViewCell";
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return UITableViewAutomaticDimension;
+    return 78;
+    //return UITableViewAutomaticDimension;
 }
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -90,6 +91,16 @@ static NSString * kCellFeedSourceIdentifier = @"FeedListTableViewCell";
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self.presenter openEditRssControllerFor:indexPath navigationController:self.navigationController];
 }
+
+
+#pragma mark - UI Actions
+
+- (IBAction)addButtonDidTap:(id)sender {
+    [self.presenter openNewRssControllerFor:self.navigationController];
+}
+
+
 
 @end

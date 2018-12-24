@@ -1,5 +1,5 @@
 //
-//  FeedSourcesCacheTracker.h
+//  CacheTracker.h
 //  RSSViewer
 //
 //  Created by Denis Skripnichenko on 21.12.2018.
@@ -12,8 +12,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FeedSourcesCacheTracker : NSObject<CacheTrackerProtocol>
+@interface CacheTracker : NSObject<CacheTrackerProtocol>
 @property (nonatomic, weak) id<CacheTrackingProtocol>delegate;
+
+- (id) cachedObjectForIndexPath:(NSIndexPath *)indexPath;
 
 @end
 

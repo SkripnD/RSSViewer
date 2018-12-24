@@ -11,11 +11,21 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NS_ENUM(NSInteger, RssSourceModelState) {
+    RssSourceModelStateNormal,
+    RssSourceModelStateNew
+};
+
 @interface RssSourceModel : NSObject<PlainModelMappable>
 
+@property (nonatomic, strong) NSString * identifier;
 @property (nonatomic, strong) NSString * url;
 @property (nonatomic, strong) NSString * name;
 @property (nonatomic, strong) NSDate * dateSynced;
+@property (nonatomic, strong) NSDate * dateCreated;
+@property (nonatomic) RssSourceModelState modelState;
+
+- (id) initAsNew;
 
 @end
 

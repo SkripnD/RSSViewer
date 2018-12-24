@@ -12,15 +12,25 @@
 
 @implementation RssSourceModel
 
+- (id) initAsNew {
+    if (self = [super init]) {
+        self.modelState = RssSourceModelStateNew;
+    }
+    return self;
+}
+
 - (void) mapFromManagedObject:(NSManagedObject *)managedObject {
     if (![managedObject isMemberOfClass:[RssSource class]]) {
         return;
     }
 
     RssSource * rssSource = (RssSource *)managedObject;
+    self.identifier = rssSource.identifier;
     self.url = rssSource.url;
     self.name = rssSource.name;
     self.dateSynced = rssSource.dateSynced;
+    self.dateCreated = rssSource.dateCreated;
+    self.modelState = RssSourceModelStateNormal;
 }
 
 @end

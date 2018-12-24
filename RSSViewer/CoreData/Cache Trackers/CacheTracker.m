@@ -1,12 +1,12 @@
 //
-//  FeedSourcesCacheTracker.m
+//  CacheTracker.m
 //  RSSViewer
 //
 //  Created by Denis Skripnichenko on 21.12.2018.
 //  Copyright © 2018 Denis Skripnichenko. All rights reserved.
 //
 
-#import "FeedSourcesCacheTracker.h"
+#import "CacheTracker.h"
 #import "CoreDataManager.h"
 #import "CacheTrackerProtocol.h"
 #import "CacheRequest.h"
@@ -14,7 +14,7 @@
 #import "CacheTransactionBatch.h"
 #import "PlainModelsFactory.h"
 
-@interface FeedSourcesCacheTracker()<NSFetchedResultsControllerDelegate>
+@interface CacheTracker()<NSFetchedResultsControllerDelegate>
 @property (nonatomic, strong) CoreDataManager * coreDataManager;
 @property (nonatomic, strong) NSFetchedResultsController * fetchController;
 @property (nonatomic, strong) CacheRequest * cacheRequest;
@@ -23,7 +23,7 @@
 
 @end
 
-@implementation FeedSourcesCacheTracker
+@implementation CacheTracker
 
 
 #pragma mark - CacheTracker
@@ -67,6 +67,12 @@
 
     return batch;
 }
+
+- (id) cachedObjectForIndexPath:(NSIndexPath *)indexPath {
+    id object = [self.fetchController objectAtIndexPath:indexPath];
+    return [self.objectsFactory plainModelFromManagedObject:object];
+}
+
 
 #pragma mark - Методы NSFetchedResultsControllerDelegate
 

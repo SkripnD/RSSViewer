@@ -26,9 +26,14 @@
 		E9CC6A0A21CCA21900BC205A /* CacheRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC6A0921CCA21900BC205A /* CacheRequest.m */; };
 		E9CC6A0D21CCA24700BC205A /* CacheTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC6A0C21CCA24700BC205A /* CacheTransaction.m */; };
 		E9CC6A1021CCA26400BC205A /* CacheTransactionBatch.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC6A0F21CCA26400BC205A /* CacheTransactionBatch.m */; };
-		E9CC6A1321CCA8CD00BC205A /* FeedSourcesCacheTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC6A1221CCA8CD00BC205A /* FeedSourcesCacheTracker.m */; };
+		E9CC6A1321CCA8CD00BC205A /* CacheTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC6A1221CCA8CD00BC205A /* CacheTracker.m */; };
 		E9CC6A1721CE7B4C00BC205A /* RssSourceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC6A1621CE7B4C00BC205A /* RssSourceModel.m */; };
 		E9CC6A1A21CE7BCB00BC205A /* PlainModelsFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC6A1921CE7BCB00BC205A /* PlainModelsFactory.m */; };
+		E9CC6A3F21D0693B00BC205A /* RssSourceEditPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC6A3521D0693B00BC205A /* RssSourceEditPresenter.m */; };
+		E9CC6A4021D0693B00BC205A /* RssSourceEditRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC6A3821D0693B00BC205A /* RssSourceEditRouter.m */; };
+		E9CC6A4121D0693B00BC205A /* RssSourceEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC6A3A21D0693B00BC205A /* RssSourceEditViewController.m */; };
+		E9CC6A4221D0693B00BC205A /* RssSourceEditInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC6A3B21D0693B00BC205A /* RssSourceEditInteractor.m */; };
+		E9CC6A4C21D06F8700BC205A /* TextInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC6A4B21D06F8700BC205A /* TextInputView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,14 +75,25 @@
 		E9CC6A0C21CCA24700BC205A /* CacheTransaction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CacheTransaction.m; sourceTree = "<group>"; };
 		E9CC6A0E21CCA26400BC205A /* CacheTransactionBatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CacheTransactionBatch.h; sourceTree = "<group>"; };
 		E9CC6A0F21CCA26400BC205A /* CacheTransactionBatch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CacheTransactionBatch.m; sourceTree = "<group>"; };
-		E9CC6A1121CCA8CD00BC205A /* FeedSourcesCacheTracker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedSourcesCacheTracker.h; sourceTree = "<group>"; };
-		E9CC6A1221CCA8CD00BC205A /* FeedSourcesCacheTracker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedSourcesCacheTracker.m; sourceTree = "<group>"; };
+		E9CC6A1121CCA8CD00BC205A /* CacheTracker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CacheTracker.h; sourceTree = "<group>"; };
+		E9CC6A1221CCA8CD00BC205A /* CacheTracker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CacheTracker.m; sourceTree = "<group>"; };
 		E9CC6A1521CE7B4C00BC205A /* RssSourceModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RssSourceModel.h; sourceTree = "<group>"; };
 		E9CC6A1621CE7B4C00BC205A /* RssSourceModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RssSourceModel.m; sourceTree = "<group>"; };
 		E9CC6A1821CE7BCB00BC205A /* PlainModelsFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlainModelsFactory.h; sourceTree = "<group>"; };
 		E9CC6A1921CE7BCB00BC205A /* PlainModelsFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlainModelsFactory.m; sourceTree = "<group>"; };
 		E9CC6A1C21CFC5C900BC205A /* PlainModelMappable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlainModelMappable.h; sourceTree = "<group>"; };
 		E9CC6A1D21CFD5A100BC205A /* CacheTrackingProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CacheTrackingProtocol.h; sourceTree = "<group>"; };
+		E9CC6A3521D0693B00BC205A /* RssSourceEditPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RssSourceEditPresenter.m; sourceTree = "<group>"; };
+		E9CC6A3621D0693B00BC205A /* RssSourceEditInteractor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RssSourceEditInteractor.h; sourceTree = "<group>"; };
+		E9CC6A3721D0693B00BC205A /* RssSourceEditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RssSourceEditViewController.h; sourceTree = "<group>"; };
+		E9CC6A3821D0693B00BC205A /* RssSourceEditRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RssSourceEditRouter.m; sourceTree = "<group>"; };
+		E9CC6A3921D0693B00BC205A /* RssSourceEditProtocols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RssSourceEditProtocols.h; sourceTree = "<group>"; };
+		E9CC6A3A21D0693B00BC205A /* RssSourceEditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RssSourceEditViewController.m; sourceTree = "<group>"; };
+		E9CC6A3B21D0693B00BC205A /* RssSourceEditInteractor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RssSourceEditInteractor.m; sourceTree = "<group>"; };
+		E9CC6A3C21D0693B00BC205A /* RssSourceEditPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RssSourceEditPresenter.h; sourceTree = "<group>"; };
+		E9CC6A3E21D0693B00BC205A /* RssSourceEditRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RssSourceEditRouter.h; sourceTree = "<group>"; };
+		E9CC6A4A21D06F8700BC205A /* TextInputView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextInputView.h; sourceTree = "<group>"; };
+		E9CC6A4B21D06F8700BC205A /* TextInputView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextInputView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +146,7 @@
 		E9CC69B921CC83E100BC205A /* RSSViewer */ = {
 			isa = PBXGroup;
 			children = (
+				E9CC6A1E21D0670C00BC205A /* Resources */,
 				E9CC69EA21CC892200BC205A /* CoreData */,
 				E9CC69E921CC85F800BC205A /* Storyboards */,
 				E9CC69D321CC854E00BC205A /* UserStories */,
@@ -137,11 +154,8 @@
 				E9CC69BB21CC83E100BC205A /* AppDelegate.m */,
 				E9CC69BD21CC83E100BC205A /* ViewController.h */,
 				E9CC69BE21CC83E100BC205A /* ViewController.m */,
-				E9CC69C621CC83E300BC205A /* Assets.xcassets */,
-				E9CC69C821CC83E300BC205A /* LaunchScreen.storyboard */,
 				E9CC69CB21CC83E300BC205A /* Info.plist */,
 				E9CC69CC21CC83E300BC205A /* main.m */,
-				E9CC69C321CC83E100BC205A /* RSSViewer.xcdatamodeld */,
 			);
 			path = RSSViewer;
 			sourceTree = "<group>";
@@ -149,6 +163,7 @@
 		E9CC69D321CC854E00BC205A /* UserStories */ = {
 			isa = PBXGroup;
 			children = (
+				E9CC6A3421D0691E00BC205A /* Rss Source Edit */,
 				E9CC69D421CC859000BC205A /* FeedsList */,
 			);
 			path = UserStories;
@@ -214,6 +229,7 @@
 		E9CC69E921CC85F800BC205A /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				E9CC69C821CC83E300BC205A /* LaunchScreen.storyboard */,
 				E9CC69C021CC83E100BC205A /* Main.storyboard */,
 			);
 			path = Storyboards;
@@ -222,9 +238,10 @@
 		E9CC69EA21CC892200BC205A /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				E9CC69C321CC83E100BC205A /* RSSViewer.xcdatamodeld */,
 				E9CC6A1421CE7AEB00BC205A /* Plain Models */,
-				E9CC6A0721CCA20300BC205A /* Cache Trackers */,
 				E9CC69EE21CC922800BC205A /* Core Data Models */,
+				E9CC6A0721CCA20300BC205A /* Cache Trackers */,
 				E9CC69EB21CC893D00BC205A /* CoreDataManager.h */,
 				E9CC69EC21CC893D00BC205A /* CoreDataManager.m */,
 			);
@@ -270,8 +287,8 @@
 				E9CC6A0C21CCA24700BC205A /* CacheTransaction.m */,
 				E9CC6A0E21CCA26400BC205A /* CacheTransactionBatch.h */,
 				E9CC6A0F21CCA26400BC205A /* CacheTransactionBatch.m */,
-				E9CC6A1121CCA8CD00BC205A /* FeedSourcesCacheTracker.h */,
-				E9CC6A1221CCA8CD00BC205A /* FeedSourcesCacheTracker.m */,
+				E9CC6A1121CCA8CD00BC205A /* CacheTracker.h */,
+				E9CC6A1221CCA8CD00BC205A /* CacheTracker.m */,
 			);
 			path = "Cache Trackers";
 			sourceTree = "<group>";
@@ -294,6 +311,80 @@
 				E9CC6A1C21CFC5C900BC205A /* PlainModelMappable.h */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		E9CC6A1E21D0670C00BC205A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E9CC69C621CC83E300BC205A /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E9CC6A3421D0691E00BC205A /* Rss Source Edit */ = {
+			isa = PBXGroup;
+			children = (
+				E9CC6A4821D0694E00BC205A /* Protocols */,
+				E9CC6A4721D0694A00BC205A /* Interactor */,
+				E9CC6A4621D0694600BC205A /* Router */,
+				E9CC6A4521D0694200BC205A /* Presenter */,
+				E9CC6A4421D0693E00BC205A /* View */,
+			);
+			path = "Rss Source Edit";
+			sourceTree = "<group>";
+		};
+		E9CC6A4421D0693E00BC205A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E9CC6A4921D06F7400BC205A /* Views */,
+				E9CC6A3721D0693B00BC205A /* RssSourceEditViewController.h */,
+				E9CC6A3A21D0693B00BC205A /* RssSourceEditViewController.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E9CC6A4521D0694200BC205A /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				E9CC6A3C21D0693B00BC205A /* RssSourceEditPresenter.h */,
+				E9CC6A3521D0693B00BC205A /* RssSourceEditPresenter.m */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		E9CC6A4621D0694600BC205A /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				E9CC6A3E21D0693B00BC205A /* RssSourceEditRouter.h */,
+				E9CC6A3821D0693B00BC205A /* RssSourceEditRouter.m */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		E9CC6A4721D0694A00BC205A /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				E9CC6A3621D0693B00BC205A /* RssSourceEditInteractor.h */,
+				E9CC6A3B21D0693B00BC205A /* RssSourceEditInteractor.m */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		E9CC6A4821D0694E00BC205A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				E9CC6A3921D0693B00BC205A /* RssSourceEditProtocols.h */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		E9CC6A4921D06F7400BC205A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E9CC6A4A21D06F8700BC205A /* TextInputView.h */,
+				E9CC6A4B21D06F8700BC205A /* TextInputView.m */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -402,14 +493,19 @@
 				E9CC6A1A21CE7BCB00BC205A /* PlainModelsFactory.m in Sources */,
 				E9CC69E121CC85A400BC205A /* FeedsListViewController.m in Sources */,
 				E9CC69ED21CC893D00BC205A /* CoreDataManager.m in Sources */,
+				E9CC6A4221D0693B00BC205A /* RssSourceEditInteractor.m in Sources */,
 				E9CC69E021CC85A400BC205A /* FeedsListRouter.m in Sources */,
+				E9CC6A4121D0693B00BC205A /* RssSourceEditViewController.m in Sources */,
 				E9CC6A1721CE7B4C00BC205A /* RssSourceModel.m in Sources */,
+				E9CC6A4021D0693B00BC205A /* RssSourceEditRouter.m in Sources */,
 				E9CC69C521CC83E100BC205A /* RSSViewer.xcdatamodeld in Sources */,
 				E9CC69CD21CC83E300BC205A /* main.m in Sources */,
-				E9CC6A1321CCA8CD00BC205A /* FeedSourcesCacheTracker.m in Sources */,
+				E9CC6A1321CCA8CD00BC205A /* CacheTracker.m in Sources */,
 				E9CC6A1021CCA26400BC205A /* CacheTransactionBatch.m in Sources */,
 				E9CC69E221CC85A400BC205A /* FeedsListInteractor.m in Sources */,
 				E9CC69BC21CC83E100BC205A /* AppDelegate.m in Sources */,
+				E9CC6A4C21D06F8700BC205A /* TextInputView.m in Sources */,
+				E9CC6A3F21D0693B00BC205A /* RssSourceEditPresenter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
