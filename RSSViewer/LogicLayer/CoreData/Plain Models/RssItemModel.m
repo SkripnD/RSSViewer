@@ -20,6 +20,8 @@
     self.descriptionText = rssItem.descriptionText;
     self.rssUrl = rssItem.rssUrl;
     self.dateCreated = rssItem.dateCreated;
+
+   // self.isRead = rssItem.is
 }
 
 @end

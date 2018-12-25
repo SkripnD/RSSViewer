@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString * descriptionText;
 @property (nonatomic, strong) NSString * rssUrl;
 @property (nonatomic, strong) NSDate * dateCreated;
+@property (nonatomic) BOOL isRead;
 
 @end
 

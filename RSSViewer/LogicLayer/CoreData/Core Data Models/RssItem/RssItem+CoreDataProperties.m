@@ -16,5 +16,6 @@
 @dynamic link;
 @dynamic rssUrl;
 @dynamic title;
+@dynamic isRead;
 
 @end

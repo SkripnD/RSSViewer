@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, copy) NSString *link;
 @property (nullable, nonatomic, copy) NSString *rssUrl;
 @property (nullable, nonatomic, copy) NSString *title;
+@property (nonatomic) BOOL isRead;
 
 @end
 
